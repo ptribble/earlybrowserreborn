@@ -1,0 +1,18 @@
+Initial set of changes to get a successful build on illumos
+(it builds, but doesn't work)
+
+Add a BUILD wrapper
+
+In CommonMakefile, use uil rather than the undefined $(UIL), and
+the objects need midas.uid built first.
+
+Remove the binary uid2c, it was for Linux and the build will regenarate
+a new one correctly.
+
+Make ad2c executable.
+
+midaswww.c needs to #include <sys/filio.h> for FIONBIO
+
+No sys_errlist, atexit, or redefinition of strerror() in midasnet.h
+
+Use strerror() rather than sys_errlist in SGMLHyper.c

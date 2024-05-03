@@ -42,7 +42,7 @@ typedef char *XPointer;
 #define SIGVAL void
 #endif
 
-#ifdef sun
+#ifdef oldsun
 #include <vfork.h>
 #endif
 

@@ -21,6 +21,9 @@
 #include <Xm/MessageB.h> 
 #include <X11/Xatom.h>
 #include <string.h>
+#ifdef sun
+#include <sys/filio.h>
+#endif
 
 #define HASHSIZE 337
 #define DEADNODE ((WWWNode *) -1)

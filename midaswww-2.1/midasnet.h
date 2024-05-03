@@ -36,7 +36,7 @@
 #include <unixio.h>
 #endif
 
-#ifdef sun
+#ifdef oldsun
 #define atexit(x) on_exit(x,NULL)
 extern int sys_nerr;
 extern char *sys_errlist[];

@@ -201,13 +201,15 @@ Midaswww_mono.ad:	Midaswww_common_part.ad Midaswww_mono_part.ad
 uid2c: uid2c.o
 	$(CC) -o $@ uid2c.o      
 
+$(OBJS): $(UICS)
+
 $(UICS): $(UIDS) uid2c
 
 .uid.uic:  
 	./uid2c $*.uid
 
 .uil.uid:
-	$(UIL) -o $*.uid $<
+	uil -o $*.uid $<
 
 test::	$(PGM) $(UIDS) 
 	XUSERFILESEARCHPATH=./%N.xx ; export XUSERFILESEARCHPATH; ./$(PGM)
