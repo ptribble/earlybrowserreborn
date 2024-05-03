@@ -10,6 +10,10 @@
  *
  */
 
+#ifdef sun
+#include <fcntl.h>
+#endif
+
 #include "HTAnchor.h"
 #include "HTStyle.h"
 #include "HText.h"

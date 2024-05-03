@@ -224,7 +224,7 @@ PUBLIC int HTParseInet(sin, str)
 #ifdef MVS	/* Oustanding problem with crsh in MVS gethostbyname */
 	if(TRACE)printf("HTTCP: Calling gethostbyname(%s)\n", host);
 #endif
-	phost=gethostbyname2(host,AF_INET);	/* See netdb.h */
+	phost=gethostbyname(host);	/* See netdb.h */
 #ifdef MVS
 	if(TRACE)printf("HTTCP: gethostbyname() returned %d\n", phost);
 #endif

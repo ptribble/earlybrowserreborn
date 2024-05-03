@@ -19,8 +19,13 @@
 
 #ifdef unix                    /* if this is to compile on a UNIX machine */
 #include <sys/types.h>
+#include <dirent.h>
+#include <limits.h>
+#include <sys/fcntl.h>
+#ifdef oldsun
 #include <sys/stat.h>
 #include <sys/dir.h>
+#endif
 #include "HText.h"
 #define GOT_READ_DIR 1    /* if directory reading functions are available */
 #endif
@@ -282,7 +287,7 @@ PUBLIC BOOL HTEditable ARGS1 (CONST char *,filename)
 #ifdef NO_GROUPS
     return NO;		/* Safe answer till we find the correct algorithm */
 #else
-    int 	groups[NGROUPS];	
+    int 	groups[NGROUPS_MAX];	
     uid_t	myUid;
     int		ngroups;			/* The number of groups  */
     struct stat	fileStatus;
@@ -291,7 +296,7 @@ PUBLIC BOOL HTEditable ARGS1 (CONST char *,filename)
     if (stat(filename, &fileStatus))		/* Get details of filename */
     	return NO;				/* Can't even access file! */
 
-    ngroups = getgroups(NGROUPS, groups);	/* Groups to which I belong  */
+    ngroups = getgroups(NGROUPS_MAX, groups);	/* Groups to which I belong  */
     myUid = geteuid();				/* Get my user identifier */
 
     if (TRACE) {
@@ -395,7 +400,7 @@ ARGS3
 **	create a new hypertext object containing a list of files and 
 **	subdirectories contained in the directory.  All of these are links
 **      to the directories or files listed.
-**      NB This assumes the existance of a type 'struct direct', which will
+**      NB This assumes the existance of a type 'struct dirent', which will
 **      hold the directory entry, and a type 'DIR' which is used to point to
 **      the current directory being read.
 */
@@ -417,7 +422,7 @@ ARGS3
 		static HTStyle * DirectoryStyle = 0;
 		static HTStyle * H1Style = 0;
 		DIR *dp;
-		struct direct * dirbuf;
+		struct dirent * dirbuf;
 		    
 		char * tmpfilename = NULL;
 		char * shortfilename = NULL;

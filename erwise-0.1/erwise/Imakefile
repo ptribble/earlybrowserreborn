@@ -23,6 +23,6 @@ LOCAL_LIBRARIES = -L$(WWWDIR) -lWWW 	\
 		  -L$(XLDIR) -lXl 	\
 		  -L$(HTDIR) -lHt
 
-         LDLIBS = -L/p/motif/lib -lXm -lXt -lX11
+         LDLIBS = -L/p/motif/lib -lXm -lXt -lX11 -lsocket -lnsl
 
 ComplexProgramTarget(erwise)

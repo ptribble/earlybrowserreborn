@@ -1,0 +1,11 @@
+Initial set of changes to get a successful build on illumos
+
+Add a BUILD wrapper
+
+Fix includes in Cl/Cl.h
+
+Add -lsocket -lnsl to erwise/Imakefile
+
+Don't use gethostbyname2() in Cl/WWWLibrary/HTTCP.c
+
+Fix Cl/WWWLibrary/HTFile.c for modern dirent and NGROUPS_MAX
