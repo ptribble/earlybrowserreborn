@@ -1,0 +1,9 @@
+This is a copy of the earlybrowserreborn repo
+
+The aim is to get these early browsers running on a modern system,
+specifically the illumos distribution Tribblix
+
+The result are unlikely to be generally useful, as these old browsers
+lack decent protocol support and will be unable to cope with most
+modern content. However, it should be possiblt to create simple sites
+to give you a feel for what the web was like in the beginning.
