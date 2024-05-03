@@ -112,6 +112,7 @@ PUBLIC int HTLoadHTTP ARGS4 (
     int i, j, delimi = 0;
     char *cp, *buffp, buff[100];
     int foundContentLength = 0;
+    char *hostheader;
 
     if (delimSize == 0) delimSize = strlen(delim);
 
@@ -140,9 +141,8 @@ PUBLIC int HTLoadHTTP ARGS4 (
 /* Get node name and optional port number:
 */
     {
-	char *p1 = HTParse(gate ? gate : arg, "", PARSE_HOST);
-	int status = HTParseInet(sin, p1);  /* TBL 920622 */
-        free(p1);
+	hostheader = HTParse(gate ? gate : arg, "", PARSE_HOST);
+	int status = HTParseInet(sin, hostheader);  /* TBL 920622 */
 	if (status) return status;   /* No such host for example */
     }
     
@@ -259,6 +259,10 @@ retry:
 	    }
 	}
 	
+	sprintf(line, "Host:  %s%s",
+		hostheader, crlf);
+	StrAllocCat(command, line);
+
 	sprintf(line, "User-Agent:  %s/%s  libwww/%s (modified)%s",
 		HTAppName ? HTAppName : "unknown",
 		HTAppVersion ? HTAppVersion : "0.0",
