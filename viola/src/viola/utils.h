@@ -14,8 +14,9 @@
 /* Override Sun's stddef.h with GCC's stdtypes.h (?) */
 
 #define print printf
-
+/*
 #if defined(SYSV) || defined(SVR4) || defined(__svr4__) || defined(VMS)
 #define bcopy(source, dest, count) memcpy(dest, source, count)
 #define bzero(b, len) memset(b, 0, len)
 #endif
+*/

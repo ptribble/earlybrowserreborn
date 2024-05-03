@@ -8,11 +8,11 @@ WWW_MACH = sun4-sol2
 ASIS_MACH = sun-4/sunos-5.2
 
 
-CFLAGS = -DUSE_DIRENT -D__svr4__ -DNGROUPS=NGROUPS_MAX -Dd_namlen=d_reclen -DNOGETWD -DHAS_GETCWD
+CFLAGS = -fcommon -DUSE_DIRENT -D__svr4__ -DNGROUPS=NGROUPS_MAX -Dd_namlen=d_reclen -DNOGETWD -DHAS_GETCWD
 
 #  Ask for static linking so that binary will be transportable
 LFLAGS = -Bstatic
-CC = cc
+CC = gcc
 
 # Directory for installed binary:
 BINDIR = /opt/bin

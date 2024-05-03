@@ -1,0 +1,20 @@
+Initial set of changes to get a successful build on illumos
+
+Use gcc by default - both in the xmkmf invocations and in the Imakefiles
+
+Pass -fcommon, needed by gcc10
+
+We're solaris, not sunos, so use sun4-sol2
+
+Don't assume . is in the PATH.
+
+In viola/utils.h, remove unnecessary (and wrong) definitions of bcopy and bzero
+
+Fix includes in libWWW/Library/Implementation/tcp.h so we use dirent
+
+Fix random() in viola/cl_generic.c, and #include <unistd.h> and <sys/fcntl.h>
+so we can find R_OK
+
+In viola/viola.c, just say no to sys_errlist
+
+Remove BUILD.decstation

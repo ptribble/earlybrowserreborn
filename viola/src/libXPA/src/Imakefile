@@ -7,7 +7,7 @@
 #include <Library.tmpl>
 #endif
 
-CC            = cc
+CC            = gcc
 CCOPTIONS = -g
 SRCS          = xpa.c
 

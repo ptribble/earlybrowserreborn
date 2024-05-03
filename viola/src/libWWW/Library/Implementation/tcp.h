@@ -496,7 +496,7 @@ Regular BSD unix versions
 */
 #ifdef unix                    /* if this is to compile on a UNIX machine */
 #define GOT_READ_DIR 1    /* if directory reading functions are available */
-#ifdef USE_DIRENT             /* sys v version */
+#ifdef __sun__             /* sys v version */
 #include <dirent.h>
 #define direct dirent
 #else

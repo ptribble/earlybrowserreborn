@@ -5,7 +5,7 @@
 # Make sure that you first BUILD viola binaries (in ../src)
 #
 
-CC            = cc
+CC            = gcc
 
 LOCAL_LIBRARIES = ../libXPM/libXpm.a -lXm $(XTOOLLIB) $(XMULIB) $(XLIB)
 
@@ -20,9 +20,9 @@ INSTALL = /usr/ucb/install
 CDEBUGFLAGS   = -g
 
 #CCOPTIONS     = -Wall
-CCOPTIONS    = -Bstatic -lresolv
+CCOPTIONS    = -fcommon -Bstatic -lresolv
 
-WWW_BIN       = ../libWWW/Library/sun4
+WWW_BIN       = ../libWWW/Library/sun4-sol2
 
 #endif
 

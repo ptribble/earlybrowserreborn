@@ -1,4 +1,4 @@
-CC		= cc
+CC		= gcc
 
 LOCAL_LIBRARIES = $(EXTENSIONLIB) $(XMULIB) $(XTOOLLIB) $(XLIB) 
 
@@ -15,8 +15,9 @@ CDEBUGFLAGS   = -g
 
 #CCOPTIONS     = -Bstatic
 #CCOPTIONS    = -Wall
+CCOPTIONS = -fcommon
 
-WWW_BIN       = ../libWWW/Library/sun4
+WWW_BIN       = ../libWWW/Library/sun4-sol2
 #endif
 
 #ifdef UltrixArchitecture

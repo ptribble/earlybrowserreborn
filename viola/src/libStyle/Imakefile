@@ -12,7 +12,7 @@ OBJS_LIBSTG   = libstg.o
 
 SRCS          = $(SRCS_LIBSTG)
 
-CC = cc
+CC = gcc
 CDEBUGFLAGS   = -g
 
 NormalLibraryObjectRule()

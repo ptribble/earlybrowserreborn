@@ -25,7 +25,7 @@
 
 #CC             = gcc
 #CC             = purify cc
-CC              = cc
+CC              = gcc
 
 #ifdef OsNameDefines
 OS_NAME_DEFINES = OsNameDefines

@@ -6,8 +6,8 @@
 #
 # If you use gcc, you should read the README file and consider using
 # Makefile.std.
-	     CC = cc
-        DEFINES = -DSYSPATHFILE=\"$(SYSPATHFILE)\"
+	     CC = gcc
+        DEFINES = -fcommon -DSYSPATHFILE=\"$(SYSPATHFILE)\"
         DEPLIBS = $(DEPXLIB)
 LOCAL_LIBRARIES = $(XLIB)
 SYS_LIBRARIES   = -lm

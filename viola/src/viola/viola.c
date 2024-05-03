@@ -494,11 +494,6 @@ void parseCommandLine(argc, argv,
  */
 #include <errno.h>
 #include <pwd.h>
-/*
-extern int errno;
-extern char *sys_errlist[];
-extern int sys_nerr;
-*/
 initUserWWW ( www )
 	 char *www;
 {
@@ -529,11 +524,6 @@ initUserWWW ( www )
 	if ( mkdir(path, 0x755) ) {
 	  Errno = errno;
 	  if ( verbose ) {
-	    if ( Errno < sys_nerr )
-	      (void) printf("mkdir(%s), error %d: %s\n", 
-			    path, Errno, sys_errlist[Errno]);
-	    else
-	      (void) printf("mkdir(%s), error %d\n", path, Errno);
 	  }
 	} else if ( verbose ) {
 	  (void) printf("created %s\n", path);

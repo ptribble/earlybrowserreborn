@@ -49,6 +49,9 @@
 #include "../libWWW/Library/Implementation/HTParse.h"
 #include "../libWWW/Library/Implementation/HTTP.h"
 
+#include <unistd.h>
+#include <sys/fcntl.h>
+
 #ifdef hpux
 #include <time.h>
 #else hpux
@@ -4706,7 +4709,7 @@ int meth_generic_random(self, result, argc, argv)
 	result->canFree = 0;
 
 #if defined(SVR4)
-	result->info.i = random((unsigned)PkInfo2Int(&argv[0]));
+	result->info.i = random();
 #else
 #ifdef i386
 	result->info.i = rand();
